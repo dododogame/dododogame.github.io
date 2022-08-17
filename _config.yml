@@ -1,0 +1,43 @@
+title: Dododo
+lang: en-US
+description: >-
+  The open-source community rhythm game with musical notations
+baseurl: ""
+url: "https://dododogame.github.io"
+github_username: dododogame
+discord_invite_id: yYdMw5hm2K
+discord_server_name: Dododo
+markdown: kramdown
+theme: minima
+google_analytics: G-7HT2EELHML
+show_excerpts: true
+minima:
+  date_format: "%b %-d, %Y"
+header_pages:
+  - about.md
+  - blog.md
+  - wiki.html
+collections:
+  posts:
+    output: true
+    permalink: /blog/:name
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll_custom_permalink
+
+disqus:
+  shortname: dododogame
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE

@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+<header class="post-header">
+	<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+</header>
+
+<p><details class="post-meta">
+	<summary>
+		About this page
+	</summary>
+	<ul>
+		<li>
+			Languages:
+			<ul>
+				{% for site_page in site.pages %}
+					{% if site_page.name == page.name and site_page.path contains 'wiki/' %}
+						{% if site_page.lang == page.lang %}
+							<li>{{ site_page.lang }}: {{ site_page.title }}</li>
+						{% else %}
+							<li>{{ site_page.lang }}: <a href="{{ site_page.url | relative_url }}">{{ site_page.title }}</a></li>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</li>
+		<li><a href="https://github.com/dododogame/wiki/blob/master/{{ page.path | remove: "wiki/" }}?plain=1">View source or edit</a></li>
+		<li><a href="https://github.com/dododogame/wiki/commits/master/{{ page.path | remove: "wiki/" }}">View history</a></li>
+	</ul>
+</details></p>
+
+<div class="post-content e-content" itemprop="articleBody">
+	{{ content }}
+</div>
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
