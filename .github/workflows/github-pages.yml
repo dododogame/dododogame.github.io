@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - uses: actions/cache@v2
         with:
@@ -24,5 +26,4 @@ jobs:
           pre_build_commands: |
             git config --global user.email "UlyssesZhan@gmail.com"
             git config --global user.name "Ulysses Zhan"
-            git submodule update --init --recursive
             gem install bundler
