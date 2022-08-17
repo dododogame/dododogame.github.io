@@ -24,4 +24,5 @@ jobs:
           pre_build_commands: |
             git config --global user.email "UlyssesZhan@gmail.com"
             git config --global user.name "Ulysses Zhan"
+            git submodule update --init --recursive
             gem install bundler
