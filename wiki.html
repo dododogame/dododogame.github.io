@@ -13,11 +13,12 @@ permalink: wiki/
 		/// CONFIG ///
 		//////////////
 
+		const target = location.search.substring(1);
 		var defaultLocale = '{{ site.lang | downcase }}';
 		var routing = {
 			{% for site_page in site.pages %}
 				{% if site_page.path contains 'wiki/' and site_page.path contains '/index.md' %}
-					"{{ site_page.lang | downcase }}": '{{ site_page.lang }}/',
+					"{{ site_page.lang | downcase }}": '{{ site_page.lang }}/' + target,
 				{% endif %}
 			{% endfor %}
 		};

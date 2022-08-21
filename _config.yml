@@ -8,6 +8,8 @@ github_username: dododogame
 discord_invite_id: yYdMw5hm2K
 discord_server_name: Dododo
 markdown: kramdown
+kramdown:
+  auto_ids: true
 theme: minima
 google_analytics: G-7HT2EELHML
 show_excerpts: true
@@ -21,16 +23,23 @@ collections:
   posts:
     output: true
     permalink: /blog/:name
+defaults:
+  - scope:
+      path: "wiki"
+    values:
+      toc: true
+toc:
+  ordered_list: true
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll_custom_permalink
-
+  - jekyll-toc
+feed:
+  path: /blog/feed.xml
 disqus:
   shortname: dododogame
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
   - gemfiles/
   - Gemfile
   - Gemfile.lock
@@ -39,5 +48,19 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - Rakefile
+  - pkg/
   - README.md
   - LICENSE
+  - "**/node_modules/"
+  - "**/README.md"
+  - "**/LICENSE"
+  - "**/gemfiles"
+  - "**/Gemfile"
+  - "**/Gemfile.lock"
+  - "**/vendor/bundle"
+  - "**/vendor/cache"
+  - "**/vendor/gems"
+  - "**/vendor/ruby"
+  - "**/pkg"
+  - "**/Rakefile"

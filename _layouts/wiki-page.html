@@ -7,10 +7,9 @@ layout: default
 	<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
 </header>
 
-<p><details class="post-meta">
-	<summary>
-		About this page
-	</summary>
+<p>
+<details class="post-meta">
+	<summary>About this page</summary>
 	<ul>
 		<li>
 			Languages:
@@ -26,13 +25,21 @@ layout: default
 				{% endfor %}
 			</ul>
 		</li>
-		<li><a href="https://github.com/dododogame/wiki/blob/master/{{ page.path | remove: "wiki/" }}?plain=1">View source or edit</a></li>
+		<li><a href="https://github.com/dododogame/wiki/blob/master/{{ page.path | remove: "wiki/" }}?plain=1">View source</a></li>
+		<li><a href="https://github.com/dododogame/wiki/edit/master/{{ page.path | remove: "wiki/" }}">Edit source</a></li>
 		<li><a href="https://github.com/dododogame/wiki/commits/master/{{ page.path | remove: "wiki/" }}">View history</a></li>
 	</ul>
-</details></p>
+</details>
+<details class="post-meta">
+	<summary>
+		Table of contents
+	</summary>
+	{{ content | toc_only }}
+</details>
+</p>
 
 <div class="post-content e-content" itemprop="articleBody">
-	{{ content }}
+	{{ content | inject_anchors }}
 </div>
 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
