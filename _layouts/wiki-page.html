@@ -10,21 +10,22 @@ layout: default
 <p>
 <details class="post-meta">
 	<summary>About this page</summary>
+	<table>
+	{% for site_page in site.pages %}
+		{% if site_page.name == page.name and site_page.path contains 'wiki/' %}
+			<tr>
+			{% if site_page.lang == page.lang %}
+				<td class="lang-name">{{ site_page.lang }}</td>
+				<td>{{ site_page.title }}</td>
+			{% else %}
+				<td class="lang-name">{{ site_page.lang }}</td>
+				<td><a href="{{ site_page.url | relative_url }}">{{ site_page.title }}</a></td>
+			{% endif %}
+			</tr>
+		{% endif %}
+	{% endfor %}
+	</table>
 	<ul>
-		<li>
-			Languages:
-			<ul>
-				{% for site_page in site.pages %}
-					{% if site_page.name == page.name and site_page.path contains 'wiki/' %}
-						{% if site_page.lang == page.lang %}
-							<li>{{ site_page.lang }}: {{ site_page.title }}</li>
-						{% else %}
-							<li>{{ site_page.lang }}: <a href="{{ site_page.url | relative_url }}">{{ site_page.title }}</a></li>
-						{% endif %}
-					{% endif %}
-				{% endfor %}
-			</ul>
-		</li>
 		<li><a href="https://github.com/dododogame/wiki/blob/master/{{ page.path | remove: "wiki/" }}?plain=1">View source</a></li>
 		<li><a href="https://github.com/dododogame/wiki/edit/master/{{ page.path | remove: "wiki/" }}">Edit source</a></li>
 		<li><a href="https://github.com/dododogame/wiki/commits/master/{{ page.path | remove: "wiki/" }}">View history</a></li>
@@ -43,3 +44,11 @@ layout: default
 </div>
 <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<script>
+	var langNames = document.getElementsByClassName("lang-name");
+	for (var i = 0; i < langNames.length; i++) {
+		lang = langNames[i].innerHTML;
+		langNames[i].innerHTML = new Intl.DisplayNames([lang], {type: 'language'}).of(lang);
+	}
+</script>
