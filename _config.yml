@@ -36,6 +36,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll_custom_permalink
   - jekyll-toc
+  - jekyll-sitemap
 feed:
   path: /blog/feed.xml
 disqus:
