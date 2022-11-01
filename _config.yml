@@ -7,6 +7,7 @@ url: "https://dododogame.github.io"
 github_username: dododogame
 discord_invite_id: yYdMw5hm2K
 discord_server_name: Dododo
+telegram_username: dododogame
 markdown: kramdown
 kramdown:
   auto_ids: true
