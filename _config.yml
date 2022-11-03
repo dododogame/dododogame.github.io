@@ -8,6 +8,8 @@ github_username: dododogame
 discord_invite_id: yYdMw5hm2K
 discord_server_name: Dododo
 telegram_username: dododogame
+qq_number: 712187652
+qq_key: UgAcEhCX
 markdown: kramdown
 kramdown:
   auto_ids: true
