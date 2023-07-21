@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="ZuV45Knwuwl49Nvh9UsDzniZ-3qy3bGhBPofLK3SZPw" />
+<meta name="baidu-site-verification" content="code-PbQ2EvWobH" />
+<meta name="msvalidate.01" content="5E8C434CB5D1F1948B192273BA4BD084" />
+
+	<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Beatmap file specifications | Dododo</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Beatmap file specifications" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The open-source community rhythm game with musical notations" />
+<meta property="og:description" content="The open-source community rhythm game with musical notations" />
+<link rel="canonical" href="https://dododogame.github.io/wiki/en-US/beatmap-spec.html" />
+<meta property="og:url" content="https://dododogame.github.io/wiki/en-US/beatmap-spec.html" />
+<meta property="og:site_name" content="Dododo" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Beatmap file specifications" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"The open-source community rhythm game with musical notations","headline":"Beatmap file specifications","url":"https://dododogame.github.io/wiki/en-US/beatmap-spec.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link rel="stylesheet" href="/assets/main.css">
+	<link rel="icon" type="image/x-icon" href=" /favicon.ico?">
+	<link type="application/atom+xml" rel="alternate" href="https://dododogame.github.io/blog/feed.xml" title="Dododo" />
+	<script>
+	MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ['\\(', '\\)']],
+			processEscapes: true,
+			tags: 'ams',
+			packages: { '[+]': ['ams', 'autoload'] }
+		},
+		loader: { load: ['[tex]/ams', '[tex]/autoload'] }
+	};
+</script>
+<script id="MathJax-script" async src="https://fastly.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.4/dist/abcjs-plugin-min.js"></script>
+
+	
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7HT2EELHML"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'G-7HT2EELHML');
+</script>
+
+	
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Dododo</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/wiki/">Wiki</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+<header class="post-header">
+	<h1 class="post-title p-name" itemprop="name headline">Beatmap file specifications</h1>
+</header>
+
+<p>
+<details class="post-meta">
+	<summary>About this page</summary>
+	<table>
+	
+		
+	
+		
+	
+		
+			<tr>
+			
+				<td class="lang-name">zh-CN</td>
+				<td><a href="/wiki/zh-CN/beatmap-spec.html">谱面文件规范</a></td>
+			
+			</tr>
+		
+	
+		
+			<tr>
+			
+				<td class="lang-name">en-US</td>
+				<td>Beatmap file specifications</td>
+			
+			</tr>
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	</table>
+	<ul>
+		<li><a href="https://github.com/dododogame/wiki/blob/master/en-US/beatmap-spec.md?plain=1">View source</a></li>
+		<li><a href="https://github.com/dododogame/wiki/edit/master/en-US/beatmap-spec.md">Edit source</a></li>
+		<li><a href="https://github.com/dododogame/wiki/commits/master/en-US/beatmap-spec.md">View history</a></li>
+	</ul>
+</details>
+<details class="post-meta">
+	<summary>Table of contents</summary>
+	<ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#header">Header</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#title">title</a></li>
+<li class="toc-entry toc-h3"><a href="#musicauthor">musicAuthor</a></li>
+<li class="toc-entry toc-h3"><a href="#beatmapauthor">beatmapAuthor</a></li>
+<li class="toc-entry toc-h3"><a href="#difficulty">difficulty</a></li>
+<li class="toc-entry toc-h3"><a href="#audiourl">audioUrl</a></li>
+<li class="toc-entry toc-h3"><a href="#start">start</a></li>
+<li class="toc-entry toc-h3"><a href="#end">end</a></li>
+<li class="toc-entry toc-h3"><a href="#volume">volume</a></li>
+<li class="toc-entry toc-h3"><a href="#offset">offset</a></li>
+<li class="toc-entry toc-h3"><a href="#psewarning">pseWarning</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#rows">Rows</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#control-sentences">Control sentences</a>
+<ol>
+<li class="toc-entry toc-h4"><a href="#expressions">Expressions</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h3"><a href="#notes">Notes</a></li>
+<li class="toc-entry toc-h3"><a href="#making-notes-beamed-or-grouping-contrametric">Making notes beamed or grouping (contrametric)</a></li>
+<li class="toc-entry toc-h3"><a href="#bar-lines">Bar lines</a></li>
+</ol>
+</li>
+</ol>
+</details>
+</p>
+
+<div class="post-content e-content" itemprop="articleBody">
+	<p>A Dododo beatmap is a <code class="language-plaintext highlighter-rouge">.ddd</code> file in plain-text format.
+The beatmap consists of two parts, the <strong>head</strong> (or <strong>frontmatter</strong>) and the list of <strong>row</strong>s.
+The two parts are separated by a single <code class="language-plaintext highlighter-rouge">---</code> line.</p>
+
+<p>The following are just some specifications.
+To read these, you are assumed to have enough knowledge about notations in sheet music.
+It is better for you to have knowledge about programming.</p>
+
+<h2 id="header">
+<a class="anchor" href="#header" aria-hidden="true"><span class="octicon octicon-link"></span></a>Header</h2>
+
+<p>The header consists of several key-value pairs, each of which lies in a line,
+and a key is separated from its corresponding value by <code>: </code> (a colon and a whitespace).</p>
+
+<p>The following items are available:</p>
+
+<h3 id="title">
+<a class="anchor" href="#title" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">title</code>
+</h3>
+
+<p>The name of the music.</p>
+
+<p>This item should always be specified to a simple, short, unique, direct string
+so that users can identify the music quickly.</p>
+
+<h3 id="musicauthor">
+<a class="anchor" href="#musicauthor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">musicAuthor</code>
+</h3>
+
+<p>The author of the music (the artist).</p>
+
+<p>The first name and middle name of the author can
+be abbreviated as their initial letters for brevity.
+If there are multiple authors,
+it is recommended to specify them all and connect the names with <code class="language-plaintext highlighter-rouge">&amp;</code>.
+If multiple authors contribute in different ways to composing the music
+(composers, lyricists, players, etc.),
+it is recommended to specify such information in parentheses.
+For example, <code class="language-plaintext highlighter-rouge">W. A. Mozart (Composer) &amp; S. Ligoratti (Player)</code>.</p>
+
+<h3 id="beatmapauthor">
+<a class="anchor" href="#beatmapauthor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">beatmapAuthor</code>
+</h3>
+
+<p>The author of the beatmap.</p>
+
+<p>You may use your nickname.</p>
+
+<h3 id="difficulty">
+<a class="anchor" href="#difficulty" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">difficulty</code>
+</h3>
+
+<p>The difficulty of the beatmap.</p>
+
+<p>It is usually specified as an integer ranging from 1 to 15.
+If it is not specified, the difficulty would be “unknown” (without the quotes).
+Though not recommended, you can specify the difficulty as
+numbers greater than 15 or “???” for extremely hard beatmaps.</p>
+
+<p>Difficulty is intended to be a brief indicator on an ordinal scale
+of how hard the beatmap is to beat.</p>
+
+<h3 id="audiourl">
+<a class="anchor" href="#audiourl" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">audioUrl</code>
+</h3>
+
+<p>The url of the audio file of the music.</p>
+
+<p>If it is not specified, the user has to upload an audio file
+(if playing through uploading files),
+or the user will not hear any music when playing.</p>
+
+<h3 id="start">
+<a class="anchor" href="#start" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">start</code>
+</h3>
+
+<p>Where to start playing the audio file, in milliseconds.</p>
+
+<p>If it is not specified, the audio file will be played from its very beginning.</p>
+
+<p>In some cases, the audio file used as the music is too long for a rhythm game,
+and it cannot be modified easily if it is provided through a url.
+Then, you may have to specify a certain portion (segment) of the audio file.
+The items <code class="language-plaintext highlighter-rouge">start</code> and <a href="#end"><code class="language-plaintext highlighter-rouge">end</code></a> offers you the function.</p>
+
+<h3 id="end">
+<a class="anchor" href="#end" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">end</code>
+</h3>
+
+<p>Where to end playing the audio file, in milliseconds.</p>
+
+<p>If it is not specified, the audio file will be played until its very end.
+Despite that, you should always specify this item in your beatmap
+to prevent the game preloading the metadata of the audio file
+(for calculating the length) to increase its performance.</p>
+
+<h3 id="volume">
+<a class="anchor" href="#volume" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">volume</code>
+</h3>
+
+<p>The volume for playing the audio file. <code class="language-plaintext highlighter-rouge">1.0</code> means original volume.</p>
+
+<p>It is intended to be used when the audio file is provided through a url
+because the file cannot be modified in that case.</p>
+
+<h3 id="offset">
+<a class="anchor" href="#offset" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">offset</code>
+</h3>
+
+<p>The time (position) in the played audio at which the beatmap starts.
+May be negative or positive.</p>
+
+<p>It is different from <a href="#start"><code class="language-plaintext highlighter-rouge">start</code></a> in that the audio before <code class="language-plaintext highlighter-rouge">offset</code> will be played.
+Note that, if <code class="language-plaintext highlighter-rouge">start</code> and <code class="language-plaintext highlighter-rouge">offset</code> are both specified,
+audio starts playing at <code class="language-plaintext highlighter-rouge">start</code> while the beatmap starts at <code class="language-plaintext highlighter-rouge">start + offset</code>.</p>
+
+<h3 id="psewarning">
+<a class="anchor" href="#psewarning" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">pseWarning</code>
+</h3>
+
+<p>Whether to show the warning about the photosensitive epilepsy (PSE).
+If your beatmap contains flashing lights or any other things that may probably trigger seizures for people with PSE,
+you should specify this item as <code class="language-plaintext highlighter-rouge">true</code>.
+Before the player starts playing the beatmap,
+if the <code class="language-plaintext highlighter-rouge">pseWarning</code> is <code class="language-plaintext highlighter-rouge">true</code>, a warning will be shown to the player:</p>
+
+<blockquote>
+  <p>This beatmap contains flickers, flashes, blinks, or moving geometric shapes,
+which may potentially trigger seizures for people with photosensitive epilepsy.
+It is recommended to turn off ornamental judgement line performances before playing this beatmap.
+Immediately stop playing and consult a doctor if you experience any symptoms, such as
+lightheadedness, altered vision, eye or face twitching, jerking or shaking of arms or legs,
+disorientation, confusion, or momentary loss of awareness.</p>
+</blockquote>
+
+<h2 id="rows">
+<a class="anchor" href="#rows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rows</h2>
+
+<p>Different <strong>row</strong>s in the beatmap are separated by empty line(s) and/or control sentences.
+Do not include empty lines within a row.</p>
+
+<p>In the rows part of the beatmap file,
+any line started with a sharp symbol (<code class="language-plaintext highlighter-rouge">#</code>) (with possibly padding white characters) is ignored.
+They serve as comments and help readers of the beatmap file to understand it.</p>
+
+<p>Every row consists of one or several <strong>voice</strong>s.
+Each voice consists of several <strong>note</strong>s and <strong>bar line</strong>s and is written within a line.
+Every note is specified by its note length and multiplicity (simultaneous note in the same voice)
+together with symbols denoting whether the note is hold, tied, beamed, etc.</p>
+
+<h3 id="control-sentences">
+<a class="anchor" href="#control-sentences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control sentences</h3>
+
+<p>Before specifying the notes in a row, some <strong>control sentence</strong>s can be included for the row.
+Each control sentence includes a keyword and one or more parameters,
+separated by spaces.
+Keywords are case-sensitive and are identifiers of various control sentences.
+To find the specifications of control sentences, see <a href="control-sentences">Control sentences</a>.</p>
+
+<h4 id="expressions">
+<a class="anchor" href="#expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expressions</h4>
+
+<p>Some of the control sentences above use math expressions as parameters.
+Parsing the math expressions are powered by <a href="https://mathjs.org/">math.js</a>.</p>
+
+<p>There are two kinds of expressions: <strong>expressions (with x)</strong> and <strong>expressions without x</strong>.
+When we say “expression” without indicating whether it is with x or without x,
+it is an expression with x.</p>
+
+<p>In expressions with x, there should be only one independent variable <code class="language-plaintext highlighter-rouge">x</code>, denoting the position in the row.
+The position is measured according to notes’ literal length but not their temporal length.</p>
+
+<p>In expressions without x, there should be no independent variables.
+Variables or functions defined by <code class="language-plaintext highlighter-rouge">LET</code> and <code class="language-plaintext highlighter-rouge">DEF</code> cannot appear in expressions without x
+because they are dependent to x.</p>
+
+<p>To find a full list of built-in variables that can be used in expressions without defining them yourself before hand,
+see <a href="built-in-identifiers">Built-in identifiers</a>.</p>
+
+<h3 id="notes">
+<a class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h3>
+
+<p>The syntax of a note is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;noteLength&gt;&lt;dots&gt;&lt;multiplicity&gt;&lt;hold&gt;&lt;big&gt;&lt;tied&gt;
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Possible value (Regexp)</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">noteLength</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[0-9a-z]</code></td>
+      <td>The note length (without of augmentation dots)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dots</code></td>
+      <td><code class="language-plaintext highlighter-rouge">\.*</code></td>
+      <td>The number of augmentation dots (as many as the number written here)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">multiplicity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">[0-9a-z]?</code></td>
+      <td>The multiplicity (number of simultaneous notes) (default 1 if omitted)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hold</code></td>
+      <td><code class="language-plaintext highlighter-rouge">_?</code></td>
+      <td>Whether the note is a hold (omitted underscore means a click)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">big</code></td>
+      <td><code class="language-plaintext highlighter-rouge">\*?</code></td>
+      <td>Whether the note is a big note (double weight when calculating score)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tied</code></td>
+      <td><code class="language-plaintext highlighter-rouge">~?</code></td>
+      <td>Whether the note is tied (connected to the next note) (tilde means tied)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here the <code class="language-plaintext highlighter-rouge">noteLength</code> and the <code class="language-plaintext highlighter-rouge">multiplicity</code> are specified by a single character representing a number.
+0–9 are just literally 0–9, and a–z are 10–35 respectively.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">noteLength</code> value represents the log2 of the ratio of
+the time length of a whole note and that of the specified note.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">multiplicity</code> value represents the number of simultaneous notes in the voices.
+A zero multiplicity means that the note is a rest.</p>
+
+<p>Because there are totally 10 digits and 26 letters,
+the shortest possible note is <code class="language-plaintext highlighter-rouge">2**35</code>th note,
+and the largest multiplicity is 35.</p>
+
+<p>If a note’s previous note is tied to this note, this note’s <code class="language-plaintext highlighter-rouge">multiplicity</code> and <code class="language-plaintext highlighter-rouge">hold</code>
+are useless and are kept consistent with the previous note,
+and this note’s <code class="language-plaintext highlighter-rouge">big</code> is forced to be <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<h3 id="making-notes-beamed-or-grouping-contrametric">
+<a class="anchor" href="#making-notes-beamed-or-grouping-contrametric" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making notes beamed or grouping (contrametric)</h3>
+
+<p>Notes can be <strong>beam</strong>ed (flags are connected) by enclosing them with parentheses.
+Parenthesized notes without flags will not be beamed.</p>
+
+<p>Beams can be created across bar lines (by inserting <code class="language-plaintext highlighter-rouge">|</code> between beamed notes)
+but not across rows or voices (but this may become a feature in future versions).</p>
+
+<p><strong>Grouping</strong>s (tuplets) can be created by specifying a ratio after the closing parenthesis.
+The ratio consists of two characters, each of which is within <code class="language-plaintext highlighter-rouge">[0-9a-z]</code> representing a number.
+The first number divided by the second number is
+the ratio of the seeming length of the grouping and the actual length of the grouping.
+The second number can be omitted, and the default value of it is</p>
+
+\[\mathit{ratio}_2=2^{\left\lfloor\log_2\mathit{ratio}_1\right\rfloor},\]
+
+<p>where $\mathit{ratio}_1$ is the first number.</p>
+
+<p>Here is an example of some notes and the rhythm they represent:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 (3 3 3)3 2 (4 4 4 4 4)5 | 2
+</code></pre></div></div>
+
+<pre class="abc-pre">
+X: 1
+M: 4/4
+K: perc stafflines = 1
+V:T stem=up
+B2 (3BBB B2 (5B/2B/2B/2B/2B/2 | B2
+</pre>
+
+<h3 id="bar-lines">
+<a class="anchor" href="#bar-lines" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bar lines</h3>
+
+<p>Bar lines are created by inserting a <code class="language-plaintext highlighter-rouge">|</code> (and spaces for separating it from notes) within a voice.
+They can appear within a beamed group of notes.
+They can also appear between two tied notes.
+It is recommended to write a bar line at the end of each voice.</p>
+
+<p>When calculating <a href="game-mechanics#score">score</a>, measures are taken into account.
+Only the bar lines written in the first voice are effective in creating measures.
+Bar lines in other voices are fake (it mainly serves as an auxiliary for the beatmapper).</p>
+
+<p>Every bar line will extend all across the voices in the row
+but not just the voice where it is written.</p>
+
+</div>
+<a class="u-url" href="/wiki/en-US/beatmap-spec.html" hidden></a>
+</article>
+
+<script>
+	var langNames = document.getElementsByClassName("lang-name");
+	for (var i = 0; i < langNames.length; i++) {
+		lang = langNames[i].innerHTML;
+		langNames[i].innerHTML = new Intl.DisplayNames([lang], {type: 'language'}).of(lang);
+	}
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Dododo</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Dododo</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/dododogame"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">dododogame</span></a></li><li><a href="https://discord.gg/yYdMw5hm2K"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#discord"></use></svg> <span class="username">Dododo</span></a></li><li><a href="https://t.me/dododogame"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#telegram"></use></svg> <span class="username">dododogame</span></a></li><li><a href="https://jq.qq.com/?k=UgAcEhCX"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#qq"></use></svg> <span class="username">712187652</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>The open-source community rhythm game with musical notations</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

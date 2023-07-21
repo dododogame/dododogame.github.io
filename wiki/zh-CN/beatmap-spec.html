@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="ZuV45Knwuwl49Nvh9UsDzniZ-3qy3bGhBPofLK3SZPw" />
+<meta name="baidu-site-verification" content="code-PbQ2EvWobH" />
+<meta name="msvalidate.01" content="5E8C434CB5D1F1948B192273BA4BD084" />
+
+	<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>谱面文件规范 | Dododo</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="谱面文件规范" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="description" content="The open-source community rhythm game with musical notations" />
+<meta property="og:description" content="The open-source community rhythm game with musical notations" />
+<link rel="canonical" href="https://dododogame.github.io/wiki/zh-CN/beatmap-spec.html" />
+<meta property="og:url" content="https://dododogame.github.io/wiki/zh-CN/beatmap-spec.html" />
+<meta property="og:site_name" content="Dododo" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="谱面文件规范" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"The open-source community rhythm game with musical notations","headline":"谱面文件规范","url":"https://dododogame.github.io/wiki/zh-CN/beatmap-spec.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link rel="stylesheet" href="/assets/main.css">
+	<link rel="icon" type="image/x-icon" href=" /favicon.ico?">
+	<link type="application/atom+xml" rel="alternate" href="https://dododogame.github.io/blog/feed.xml" title="Dododo" />
+	<script>
+	MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ['\\(', '\\)']],
+			processEscapes: true,
+			tags: 'ams',
+			packages: { '[+]': ['ams', 'autoload'] }
+		},
+		loader: { load: ['[tex]/ams', '[tex]/autoload'] }
+	};
+</script>
+<script id="MathJax-script" async src="https://fastly.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/abcjs@6.0.4/dist/abcjs-plugin-min.js"></script>
+
+	
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7HT2EELHML"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
+
+	gtag('config', 'G-7HT2EELHML');
+</script>
+
+	
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Dododo</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/wiki/">Wiki</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+<header class="post-header">
+	<h1 class="post-title p-name" itemprop="name headline">谱面文件规范</h1>
+</header>
+
+<p>
+<details class="post-meta">
+	<summary>About this page</summary>
+	<table>
+	
+		
+	
+		
+	
+		
+			<tr>
+			
+				<td class="lang-name">zh-CN</td>
+				<td>谱面文件规范</td>
+			
+			</tr>
+		
+	
+		
+			<tr>
+			
+				<td class="lang-name">en-US</td>
+				<td><a href="/wiki/en-US/beatmap-spec.html">Beatmap file specifications</a></td>
+			
+			</tr>
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	</table>
+	<ul>
+		<li><a href="https://github.com/dododogame/wiki/blob/master/zh-CN/beatmap-spec.md?plain=1">View source</a></li>
+		<li><a href="https://github.com/dododogame/wiki/edit/master/zh-CN/beatmap-spec.md">Edit source</a></li>
+		<li><a href="https://github.com/dododogame/wiki/commits/master/zh-CN/beatmap-spec.md">View history</a></li>
+	</ul>
+</details>
+<details class="post-meta">
+	<summary>Table of contents</summary>
+	<ol id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#文件头">文件头</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#title">title</a></li>
+<li class="toc-entry toc-h3"><a href="#musicauthor">musicAuthor</a></li>
+<li class="toc-entry toc-h3"><a href="#beatmapauthor">beatmapAuthor</a></li>
+<li class="toc-entry toc-h3"><a href="#difficulty">difficulty</a></li>
+<li class="toc-entry toc-h3"><a href="#audiourl">audioUrl</a></li>
+<li class="toc-entry toc-h3"><a href="#start">start</a></li>
+<li class="toc-entry toc-h3"><a href="#end">end</a></li>
+<li class="toc-entry toc-h3"><a href="#volume">volume</a></li>
+<li class="toc-entry toc-h3"><a href="#offset">offset</a></li>
+<li class="toc-entry toc-h3"><a href="#psewarning">pseWarning</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h2"><a href="#行">行</a>
+<ol>
+<li class="toc-entry toc-h3"><a href="#控制语句">控制语句</a>
+<ol>
+<li class="toc-entry toc-h4"><a href="#数学表达式">数学表达式</a></li>
+</ol>
+</li>
+<li class="toc-entry toc-h3"><a href="#音符">音符</a></li>
+<li class="toc-entry toc-h3"><a href="#用符杠连接音符以及连音">用符杠连接音符，以及连音</a></li>
+<li class="toc-entry toc-h3"><a href="#小节线">小节线</a></li>
+</ol>
+</li>
+</ol>
+</details>
+</p>
+
+<div class="post-content e-content" itemprop="articleBody">
+	<p>Dododo 谱面是 <code class="language-plaintext highlighter-rouge">.ddd</code> 纯文本格式的文件。谱面文件由两部分组成，<strong>文件头</strong>和<strong>行</strong>的列表。这两个部分由 <code class="language-plaintext highlighter-rouge">---</code> 分隔。</p>
+
+<p>以下只是一些规则。在阅读以下内容时，我们默认您已经对乐谱及乐谱的符号有一定的了解。</p>
+
+<h2 id="文件头">
+<a class="anchor" href="#%E6%96%87%E4%BB%B6%E5%A4%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件头</h2>
+
+<p>文件头由几个谱面基础设置组成，每个设置对位于一行中，与其对应的信息由 <code class="language-plaintext highlighter-rouge">: </code> （冒号和空格）分隔。</p>
+
+<p>以下设置可用：</p>
+
+<h3 id="title">
+<a class="anchor" href="#title" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">title</code>
+</h3>
+
+<p>音乐的名称。</p>
+
+<p>此设置应始终设置为为简单、简短、唯一、直接的名称，以便玩家可以快速识别音乐。</p>
+
+<h3 id="musicauthor">
+<a class="anchor" href="#musicauthor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">musicAuthor</code>
+</h3>
+
+<p>音乐的作者（艺术家）。</p>
+
+<p>为简洁起见，作者的名字和中间名可以缩写为首字母。如果有多个作者，建议全部写出并用 <code class="language-plaintext highlighter-rouge">&amp;</code> 连接名称。如果多个作者以不同的方式创作音乐（作曲家、作词家、演奏者等），建议在括号中写出此类信息。例如 W. A. Mozart (Composer) &amp; S. Ligoratti (Player)。</p>
+
+<h3 id="beatmapauthor">
+<a class="anchor" href="#beatmapauthor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">beatmapAuthor</code>
+</h3>
+
+<p>谱面的作者（谱师）。</p>
+
+<p>您可以使用您的昵称。</p>
+
+<h3 id="difficulty">
+<a class="anchor" href="#difficulty" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">difficulty</code>
+</h3>
+
+<p>谱面的难度。</p>
+
+<p>通常设置为 1 到 15 的整数。如果没有指定，难度就会默认设置为“未知”（不带引号）。虽然不推荐，但对于极其困难的谱面，您可以将难度设定为大于 15 的数字或“???”。</p>
+
+<p>难度是用来衡量谱面难度的指标。</p>
+
+<h3 id="audiourl">
+<a class="anchor" href="#audiourl" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">audioUrl</code>
+</h3>
+
+<p>音频文件的 url。</p>
+
+<p>如果不设置，则玩家必须上传音频文件（如果通过上传文件播放），否则游玩时玩家将听不到任何音乐。</p>
+
+<h3 id="start">
+<a class="anchor" href="#start" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">start</code>
+</h3>
+
+<p>从哪里开始播放音乐，以毫秒为单位。</p>
+
+<p>如果未设置，则音乐将从头开始播放。</p>
+
+<p>在某些情况下，用作音乐的音频对于音游来说太长了，如果通过 url 提供，会不容易修改。所以，您可能必须截取音乐的某个部分（片段）。<code class="language-plaintext highlighter-rouge">start</code> 和 <a href="#end"><code class="language-plaintext highlighter-rouge">end</code></a> 参数可以为您提供这些功能。</p>
+
+<h3 id="end">
+<a class="anchor" href="#end" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">end</code>
+</h3>
+
+<p>在哪里结束播放音乐，以毫秒为单位。</p>
+
+<p>如果未设置，音乐将一直播放到最后。尽管如此，您仍应始终在谱面中指定此项，因为可以节省游戏预加载音乐的元数据（用于计算长度）以提高其性能。</p>
+
+<h3 id="volume">
+<a class="anchor" href="#volume" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">volume</code>
+</h3>
+
+<p>播放音乐的音量。1.0为原音量。</p>
+
+<p>它可以在通过 url 提供音频文件时使用，因为在这种情况下无法修改音乐。</p>
+
+<h3 id="offset">
+<a class="anchor" href="#offset" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">offset</code>
+</h3>
+
+<p>播放音频时谱面开始的时间（位置）。可能是正的也可能是负的（还有可能是0）。</p>
+
+<p>与 <a href="#start"><code class="language-plaintext highlighter-rouge">start</code></a> 不同在于，<code class="language-plaintext highlighter-rouge">start</code> 之前的音乐不会播放。请注意，如果 <code class="language-plaintext highlighter-rouge">start</code> 和 <code class="language-plaintext highlighter-rouge">offset</code> 都指定了，音频开始播放于 <code class="language-plaintext highlighter-rouge">start</code>，而谱面开始于 <code class="language-plaintext highlighter-rouge">start + offset</code>。</p>
+
+<h3 id="psewarning">
+<a class="anchor" href="#psewarning" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="language-plaintext highlighter-rouge">pseWarning</code>
+</h3>
+
+<p>是否开启光敏性癫痫警告。
+如果您的铺面内含有高频闪烁等任何其他可能引发光敏性癫痫患者癫痫发作的东西，您应当将此选项设定为 <code class="language-plaintext highlighter-rouge">true</code>。
+在玩家开始游玩您的铺面之前，如果此选项被开启，则会向玩家发出警告。</p>
+
+<blockquote>
+  <p>该谱面包含画面闪烁或移动的几何形状, 这可能会引发光敏性癫痫患者的癫痫发作.
+建议在观看或游玩此谱面之前关闭装饰性判定线表演.
+如果您出现任何症状, 例如头晕, 视力下降, 面部抽搐, 四肢抽搐, 迷失方向, 慌乱, 或暂时失去意识,
+请立即停止游戏并咨询医生.</p>
+</blockquote>
+
+<h2 id="行">
+<a class="anchor" href="#%E8%A1%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>行</h2>
+
+<p>每一行由一个或多个<strong>声部</strong>组成。
+每一声部又由多个<strong>音符</strong>和<strong>小节线</strong>组成。
+每一音符又都有时值以及押数（完成一个音符所需要按下的键的数量）、是否为长音、是否有连音线等属性。</p>
+
+<p>在谱面中，以控制语句或空行分隔不同的<strong>行</strong>。
+所以在编写谱面文件时，请不要在同一行不同声部的中间插入控制语句或空行。</p>
+
+<p>在谱面文件里,
+以井号 （<code class="language-plaintext highlighter-rouge">#</code>） 开头的行都将被忽略。
+可以用它写注释来让其他谱师查看谱面文件时能够更好理解（<del>就算标了也看不懂其实</del>）。
+在谱面文件出问题时，您也可以用它注释掉一部分控制语句以通过排除法快速找出错误。</p>
+
+<h3 id="控制语句">
+<a class="anchor" href="#%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>控制语句</h3>
+
+<p>在每一行的注释之前，您可以给这一行添加一些<strong>控制语句</strong>。
+每个控制语句由关键字和若干个用空格分隔的参数构成。
+关键字大小写敏感，因为它们是各个控制语句的识别符。
+如果您想要查阅控制语句规范，请查看<a href="control-sentences">控制语句</a></p>
+
+<h4 id="数学表达式">
+<a class="anchor" href="#%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>数学表达式</h4>
+
+<p>一些控制语句使用数学表达式作为参数，解析这些数学表达式的功能来自 <a href="https://mathjs.org/">math.js</a> 。 
+Dododo 中存在两种不同的表达式：<strong>含 x 的表达式</strong>和<strong>不含 x 的表达式</strong>。
+当我们提及到<strong>表达式</strong>而并没有提到是否该表达式是否含 x 时，我们默认此表达式含 x。</p>
+
+<h3 id="音符">
+<a class="anchor" href="#%E9%9F%B3%E7%AC%A6" aria-hidden="true"><span class="octicon octicon-link"></span></a>音符</h3>
+
+<h3 id="用符杠连接音符以及连音">
+<a class="anchor" href="#%E7%94%A8%E7%AC%A6%E6%9D%A0%E8%BF%9E%E6%8E%A5%E9%9F%B3%E7%AC%A6%E4%BB%A5%E5%8F%8A%E8%BF%9E%E9%9F%B3" aria-hidden="true"><span class="octicon octicon-link"></span></a>用符杠连接音符，以及连音</h3>
+
+<h3 id="小节线">
+<a class="anchor" href="#%E5%B0%8F%E8%8A%82%E7%BA%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>小节线</h3>
+
+</div>
+<a class="u-url" href="/wiki/zh-CN/beatmap-spec.html" hidden></a>
+</article>
+
+<script>
+	var langNames = document.getElementsByClassName("lang-name");
+	for (var i = 0; i < langNames.length; i++) {
+		lang = langNames[i].innerHTML;
+		langNames[i].innerHTML = new Intl.DisplayNames([lang], {type: 'language'}).of(lang);
+	}
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Dododo</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Dododo</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/dododogame"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">dododogame</span></a></li><li><a href="https://discord.gg/yYdMw5hm2K"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#discord"></use></svg> <span class="username">Dododo</span></a></li><li><a href="https://t.me/dododogame"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#telegram"></use></svg> <span class="username">dododogame</span></a></li><li><a href="https://jq.qq.com/?k=UgAcEhCX"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#qq"></use></svg> <span class="username">712187652</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>The open-source community rhythm game with musical notations</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script type="text/javascript">
+
+const target = location.search.substring(1) + location.hash;
+const defaultLocale = 'en-us';
+const routing = {
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			"zh-cn": 'zh-CN/' + target,
+		
+	
+		
+			"en-us": 'en-US/' + target,
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+};
+
+
+	const enableLog = false;
+
+
+function log(message) {
+	if (enableLog) {
+		console.log(message);
+	}
+}
+
+function getBrowserLanguage() {
+	if (!navigator) return null;
+	if (navigator.languages && navigator.languages.length > 0) return navigator.languages[0];
+	if (navigator.userLanguage) return navigator.userLanguage;
+	if (navigator.browserLanguage) return navigator.browserLanguage;
+	return navigator.language;
+}
+
+function localeSimilarity(locale1, locale2) {
+	if (!locale1 || !locale2) return 0;
+	locale1 = locale1.split('-');
+	locale2 = locale2.split('-');
+	if (!locale1 || !locale2) return 0;
+	let result = 0;
+	while (locale1.shift() === locale2.shift())
+		result++;
+	return result;
+}
+
+function targetUrl(locale) {
+	log('matching locale ' + locale + ' ...');
+	if (routing[locale])
+		return routing[locale];
+	log('no route found for locale ' + locale);
+	for (availableLocale in routing) {
+		if (localeSimilarity(locale, availableLocale) > 0) {
+			log('found similar locale ' + availableLocale);
+			return routing[availableLocale];
+		}
+	}
+	log('no similar locale found, using default locale ' + defaultLocale);
+	return routing[defaultLocale];
+}
+
+function redirectToRoute(locale) {
+	route = targetUrl(locale)
+	log('will redirect to ' + route);
+	window.location.replace(route);
+}
+
+var locale = getBrowserLanguage() || defaultLocale;
+log('browser locale: ' + locale);
+locale = locale.toLowerCase();
+redirectToRoute(locale);
+
+</script>
+</body>
+</html>
